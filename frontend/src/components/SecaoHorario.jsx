@@ -6,7 +6,7 @@ export default function SecaoHorario() {
       <CardContent className="space-y-2 py-4">
         <div className="flex justify-between">
           <strong>📅 Data</strong>
-          <span>Junho 24 • 21:00</span>
+          <span>Junho 24 🕘 21:00h</span>
         </div>
       </CardContent>
     </Card>
