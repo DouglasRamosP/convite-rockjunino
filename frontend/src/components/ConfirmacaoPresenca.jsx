@@ -6,34 +6,60 @@ import { Input } from "@/components/ui/input";
 export default function ConfirmacaoPresenca() {
   const [confirmado, setConfirmado] = useState(false);
   const [nome, setNome] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleConfirmarPresenca = async () => {
-    if (!nome) return;
+    if (!nome || !telefone) return alert("Preencha nome e telefone!");
+
     await fetch("http://localhost:3000/api/confirmacoes", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nome }),
+      body: JSON.stringify({ nome, telefone, email }),
     });
+
     setConfirmado(true);
+    setNome("");
+    setTelefone("");
+    setEmail("");
   };
 
   return (
-    <Card>
-      <CardContent className="space-y-2">
-        <h2 className="text-2xl font-semibold">✅ Confirme sua Presença</h2>
+    <Card className="bg-[#2c261f] border-none text-[#f5edda] font-serif backdrop-blur-md">
+      <CardContent className="py-4 space-y-2">
+        <h2 className="text-xl font-semibold">Solicite seu ingresso</h2>
+
         {confirmado ? (
-          <p className="text-green-600">Presença confirmada! Obrigado 🤘</p>
+          <p className="text-green-400">
+            📩 Sua solicitação foi recebida com sucesso! Ela será analisada com
+            carinho, e em breve você receberá o retorno pelo e-mail ou WhatsApp
+            informado. Fique de olho… a festa continua por aqui também! 🎉🤘
+          </p>
         ) : (
           <div className="space-y-2">
             <Input
-              placeholder="Digite seu nome completo"
+              placeholder="Nome completo"
               value={nome}
               onChange={(e) => setNome(e.target.value)}
-              className="bg-white text-black placeholder:text-gray-400"
+              className="bg-[#f5edda] text-black placeholder:text-gray-500"
             />
-
-            <Button onClick={handleConfirmarPresenca}>
-              Confirmar Presença
+            <Input
+              placeholder="Telefone (WhatsApp)"
+              value={telefone}
+              onChange={(e) => setTelefone(e.target.value)}
+              className="bg-[#f5edda] text-black placeholder:text-gray-500"
+            />
+            <Input
+              placeholder="Email (opcional)"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="bg-[#f5edda] text-black placeholder:text-gray-500"
+            />
+            <Button
+              onClick={handleConfirmarPresenca}
+              className="bg-orange-500 rounded-lg hover:bg-orange-600 text-white px-4"
+            >
+              Confirmar
             </Button>
           </div>
         )}
