@@ -10,18 +10,33 @@ export default function ConfirmacaoPresenca() {
   const [email, setEmail] = useState("");
 
   const handleConfirmarPresenca = async () => {
-    if (!nome || !telefone) return alert("Preencha nome e telefone!");
+    if (!nome || !telefone) {
+      alert("Preencha nome e telefone!");
+      return;
+    }
 
-    await fetch("http://localhost:3000/api/confirmacoes", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nome, telefone, email }),
-    });
+    try {
+      const response = await fetch("http://localhost:3000/api/confirmacoes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nome, telefone, email }),
+      });
 
-    setConfirmado(true);
-    setNome("");
-    setTelefone("");
-    setEmail("");
+      const data = await response.json();
+
+      if (!response.ok) {
+        alert(data.error || "Erro ao confirmar presença.");
+        return;
+      }
+
+      setConfirmado(true);
+      setNome("");
+      setTelefone("");
+      setEmail("");
+    } catch (error) {
+      console.error("Erro ao enviar confirmação:", error);
+      alert("Erro ao conectar com o servidor.");
+    }
   };
 
   return (

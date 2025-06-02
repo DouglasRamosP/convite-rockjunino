@@ -7,7 +7,19 @@ router.post("/", async (req, res) => {
     const { nome, telefone, email } = req.body;
 
     if (!nome || !telefone) {
-      return res.status(400).json({ error: "Nome e telefone são obrigatórios" });
+      return res
+        .status(400)
+        .json({ error: "Nome e telefone são obrigatórios" });
+    }
+
+    const existe = await Confirmacao.findOne({
+      $or: [{ nome }, { telefone }, ...(email ? [{ email }] : [])],
+    });
+
+    if (existe) {
+      return res
+        .status(409)
+        .json({ error: "Confirmação já registrada com esses dados." });
     }
 
     const novaConfirmacao = new Confirmacao({ nome, telefone, email });
