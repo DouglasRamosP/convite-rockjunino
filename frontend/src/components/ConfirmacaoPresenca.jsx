@@ -26,11 +26,15 @@ export default function ConfirmacaoPresenca() {
         ) : (
           <div className="space-y-2">
             <Input
-              placeholder="Seu nome"
+              placeholder="Digite seu nome completo"
               value={nome}
               onChange={(e) => setNome(e.target.value)}
+              className="bg-white text-black placeholder:text-gray-400"
             />
-            <Button onClick={handleConfirmarPresenca}>Confirmar Presença</Button>
+
+            <Button onClick={handleConfirmarPresenca}>
+              Confirmar Presença
+            </Button>
           </div>
         )}
       </CardContent>

@@ -2,13 +2,12 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function SecaoAtracoes() {
   return (
-    <Card>
-      <CardContent className="space-y-2">
-        <h2 className="text-2xl font-semibold">🎤 Atrações</h2>
-        <ul className="list-disc pl-6">
-          <li>Banda de Rock Junino</li>
-          <li>Quadrilha com Guitarra</li>
-          <li>Concurso de melhor look "caipira rockstar"</li>
+    <Card className="bg-[#2c261f] border-none text-[#f5edda] font-serif rounded-none">
+      <CardContent className="space-y-2 py-4">
+        <strong>🎸 Atrações</strong>
+        <ul className="list-disc list-inside ">
+          <li>Banda Pé de Serra</li>
+          <li>DJ</li>
         </ul>
       </CardContent>
     </Card>
