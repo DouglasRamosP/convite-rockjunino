@@ -11,6 +11,7 @@ export default function RecordacoesPage() {
         <img src="/fotos/foto1.png" alt="Foto 1" className="rounded shadow-md" />
         <img src="/fotos/foto2.png" alt="Foto 2" className="rounded shadow-md" />
         <img src="/fotos/arte.png" alt="Foto 2" className="rounded shadow-md" />
+        <img src="/fotos/foto3.jpg" alt="Foto 2" className="rounded shadow-md" />
         {/* Adicione mais fotos aqui */}
       </div>
     </div>
