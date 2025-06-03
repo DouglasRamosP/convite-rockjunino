@@ -2,13 +2,12 @@ const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
 
-// Dados fixos de admin
+// Usar variáveis de ambiente
 const ADMIN_USER = {
-  username: "admin",
-  password: "Abc@12Rock", // Troque isso por segurança real depois!
+  username: process.env.ADMIN_USER,
+  password: process.env.ADMIN_PASSWORD,
 };
 
-// Rota de login
 router.post("/login", (req, res) => {
   const { username, password } = req.body;
 
