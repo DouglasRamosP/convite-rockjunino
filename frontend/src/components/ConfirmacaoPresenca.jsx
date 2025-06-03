@@ -16,7 +16,7 @@ export default function ConfirmacaoPresenca() {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/api/confirmacoes", {
+      const response = await fetch("https://convite-rockjunino.onrender.com/api/confirmacoes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nome, telefone, email }),
