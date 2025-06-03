@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 // Dados fixos de admin
 const ADMIN_USER = {
   username: "admin",
-  password: "123456", // Troque isso por segurança real depois!
+  password: "Abc@12Rock", // Troque isso por segurança real depois!
 };
 
 // Rota de login
