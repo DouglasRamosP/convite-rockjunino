@@ -11,7 +11,8 @@ import BotaoAdmin from "@/components/BotaoAdmin";
 export default function ConviteAniversario() {
   return (
     
-    <div className="min-h-screen bg-[#1a1612] text-[#f5edda] font-serif p-6 pt-2 pb-6 flex flex-col items-center grap-0">
+    <div className="min-h-screen bg-[#1a1612] text-[#f5edda] font-serif px-0 sm:px-4 md:px-6 py-4 flex flex-col items-center">
+
       <Cabecalho />
       <h1 className="text-5xl font-bold tracking-wide uppercase text-[#f5edda] mb-4">
         Birthday Party
