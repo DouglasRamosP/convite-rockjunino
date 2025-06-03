@@ -19,7 +19,7 @@ export default function AdminPanel() {
 
   async function fetchConfirmacoes() {
     try {
-      const response = await fetch(`http://localhost:3000/admin/${filtro}`);
+      const response = await fetch(`https://convite-rockjunino.onrender.com/admin/${filtro}`);
       const data = await response.json();
       setConfirmacoes(data);
     } catch (error) {
@@ -29,7 +29,7 @@ export default function AdminPanel() {
 
   async function atualizarStatus(id, novoStatus) {
     try {
-      await fetch(`http://localhost:3000/admin/${id}`, {
+      await fetch(`https://convite-rockjunino.onrender.com/admin/${id}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: novoStatus }),

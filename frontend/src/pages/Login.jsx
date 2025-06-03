@@ -8,7 +8,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    const response = await fetch("http://localhost:3000/auth/login", {
+    const response = await fetch("https://convite-rockjunino.onrender.com/auth/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
